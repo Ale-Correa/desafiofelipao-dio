@@ -1,67 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Classes de Herói</title>
-  </head>
-  <stile>
-    body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background-color: #f2f2f2;
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Nível do Herói</title>
+  
+</head>
+<body>
+
+  <h1>Descubra o nível do seu herói</h1>
+
+  <label for="nome">Nome do Herói:</label><br>
+  <input type="text" id="nome" placeholder="Ex: Artemis"><br><br>
+
+  <label for="xp">Experiência (XP):</label><br>
+  <input type="number" id="xp" placeholder="Ex: 7200"><br><br>
+
+  <button onclick="verificarNivel()">Ver Nível</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function verificarNivel() {
+      const nome = document.getElementById("nome").value;
+      const xp = parseInt(document.getElementById("xp").value);
+      let nivel = "";
+
+      if (xp < 1000) {
+        nivel = "Ferro";
+      } else if (xp <= 2000) {
+        nivel = "Bronze";
+      } else if (xp <= 5000) {
+        nivel = "Prata";
+      } else if (xp <= 7000) {
+        nivel = "Ouro";
+      } else if (xp <= 8000) {
+        nivel = "Platina";
+      } else if (xp <= 9000) {
+        nivel = "Ascendente";
+      } else if (xp <= 10000) {
+        nivel = "Imortal";
+      } else {
+        nivel = "Radiante";
+      }
+
+      document.getElementById("resultado").innerText = `O herói ${nome} está no nível ${nivel}`;
     }
-    input, button {
-        padding: 10px;
-        margin-top: 10px;
-        font-size: 16px;
-      }
-      #resultado {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: bold;
-      }
+  </script>
 
-  </stile> 
-  <body>
-    <h1>Descubra o nivel do seu herpoi</h1>
-
-    <label for="nome">Nome do Herói:</label><br />
-    <input type="text" id="nome" placeholder="Ex: Artemis" /><br /><br />
-
-    <label for="xp">Experiência (XP):</label><br />
-    <input type="number" name="xp" id="xp" placeholder="Ex: 7200" /><br /><br />
-
-    <button onclick="verificaNivel()">Ver Nível</button>
-
-    <div id="resultado"></div>
-
-    <script>
-      function verificaNivel() {
-        const nome = document.getElementById("nome").value;
-        const xp = parseInt(document.getElementById("xp").value);
-        let nivel = "";
-
-        if (xpHeroi < 1000) {
-          nivel = "Ferro";
-        } else if (xpHeroi <= 2000) {
-          nivel = "Bronze";
-        } else if (xpHeroi <= 5000) {
-          nivel = "Prata";
-        } else if (xpHeroi <= 7000) {
-          nivel = "Ouro";
-        } else if (xpHeroi <= 8000) {
-          nivel = "Platina";
-        } else if (xpHeroi <= 9000) {
-          nivel = "Ascendente";
-        } else if (xpHeroi <= 10000) {
-          nivel = "Imortal";
-        } else {
-          nivel = "Radiante";
-        }
-      }
-
-      document.getElementById("resultado").innerText = `O herói de nome ${nome} está no nível`;
-    </script>
-  </body>
+</body>
 </html>
